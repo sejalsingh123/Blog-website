@@ -29,8 +29,8 @@ export default function Navbar() {
           <Link href="/" className="hover:opacity-80 cursor-pointer">Home</Link>
           <Link href="/dashboard" className="hover:opacity-80 cursor-pointer">Dashboard</Link>
           <Link href="/logout" className="hover:opacity-80 cursor-pointer">Logout</Link>
-          <Link href="/logout" className="hover:opacity-80 cursor-pointer">Login</Link>
-          <Link href="/logout" className="hover:opacity-80 cursor-pointer">Signup</Link>
+          <Link href="/sign-in" className="hover:opacity-80 cursor-pointer">Login</Link>
+          <Link href="/sign-up" className="hover:opacity-80 cursor-pointer">Signup</Link>
           <Link href="/admin" className="hover:opacity-80 cursor-pointer">Admin</Link>
         </ul>
 
