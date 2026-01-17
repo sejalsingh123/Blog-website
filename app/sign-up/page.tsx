@@ -27,7 +27,7 @@ const SignUp = () => {
         }
     }
   return (
-    <main className="max-w-md mx-auto p-6 space-y-4 text-white">
+    <main className="max-w-md mx-auto p-6 space-y-4 text-black bg-[#a57445] h-screen flex items-center justify-center flex-col">
       <h1 className="text-2xl font-bold">Sign Up</h1>
       {error && <p className="text-red-500">{error}</p>}
 
@@ -36,14 +36,14 @@ const SignUp = () => {
           name="name"
           placeholder="Full Name"
           required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
+          className="w-full rounded-md  bg-amber-50 border border-neutral-700 px-3 py-2"
         />
         <input
           name="email"
           type="email"
           placeholder="Email"
           required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
+          className="w-full rounded-md bg-amber-50 border border-neutral-700 px-3 py-2"
         />
         <input
           name="password"
@@ -51,11 +51,11 @@ const SignUp = () => {
           placeholder="Password"
           required
           minLength={8}
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
+          className="w-full rounded-md bg-amber-50 border border-neutral-700 px-3 py-2"
         />
         <button
           type="submit"
-          className="w-full bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200"
+          className="w-full bg-amber-50 text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200"
         >
           Create Account
         </button>

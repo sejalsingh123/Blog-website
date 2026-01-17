@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../app/generated/prisma"
 }
 
@@ -19,10 +19,14 @@ model User {
   email         String
   emailVerified Boolean   @default(false)
   image         String?
+  role          Role      @default(USER)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
+  posts         Post[]
+  category      Category[]
+  savedPosts    String[] @default([])
 
   @@unique([email])
   @@map("user")
@@ -75,3 +79,39 @@ model Verification {
   @@index([identifier])
   @@map("verification")
 }
+
+//Role for user permissions
+enum Role{
+  USER
+  ADMIN
+}
+
+
+//Post model for blog posts 
+model Post{
+  id           String      @id @default(uuid())
+  title        String
+  slug         String      @unique
+  content      String
+  imageUrl     String
+  views        Int         @default(0)
+  tags         String[]
+  userId       String
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId   String
+  category     Category   @relation(references: [id], fields: [categoryId], onDelete: Cascade)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @default(now())  @updatedAt
+}
+
+model Category{
+  id  String  @id @default(uuid())
+  name String
+  userId  String
+  user    User  @relation(references: [id], fields: [userId], onDelete: Cascade)
+  posts   Post[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+}
+
+

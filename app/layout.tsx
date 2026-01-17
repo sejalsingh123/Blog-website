@@ -9,7 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >
+      <body className="bg-amber-50 min-h-screen flex flex-col justify-between">
         <Navbar/>
         {children}
         <Footer />
