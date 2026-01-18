@@ -1,9 +1,30 @@
-import React from 'react'
+import Link from "next/link";
 
-const BlogCard = () => {
+const BlogCard = ({ post }: { post: any }) => {
   return (
-    <div>BlogCard</div>
-  )
-}
+    <div className="bg-white rounded-xl shadow hover:shadow-lg transition p-4">
+      
+      {/* Image */}
+      <img
+        src={post.imageUrl}
+        alt={post.title}
+        className="w-full h-48 object-cover rounded-lg"
+      />
 
-export default BlogCard
+      {/* Title */}
+      <h3 className="mt-4 text-xl font-semibold">
+        {post.title}
+      </h3>
+
+      {/* Read more */}
+      <Link
+        href={`/blogs/post/${post.slug}`}
+        className="inline-block mt-3 text-indigo-600 font-medium"
+      >
+        Read more →
+      </Link>
+    </div>
+  );
+};
+
+export default BlogCard;

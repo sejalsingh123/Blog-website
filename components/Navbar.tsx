@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 
 
 export default function Navbar() {
-  const {data: session} = useSession();
+  const {data} = useSession();
   const router = useRouter();
   return (
     <nav className="w-full bg-[#3f4a3f] px-10 py-6">
@@ -34,9 +34,15 @@ export default function Navbar() {
         {/* navigation links */}
         <ul className="hidden md:flex items-center gap-10 text-[#f5e6d3] text-lg">
           <Link href="/" className="hover:opacity-80 cursor-pointer">Home</Link>
-          {session?.user ? (
+          {/* if user is admin */}
+          {data?.user && (data.user as any).role === 'ADMIN' && (
+            <Link href="/admin" className="hover:opacity-80 cursor-pointer">Admin</Link>
+          )}
+          {/* if user is logged in or not */}
+          {data?.user ? (
             <>
-              <span className="hover:opacity-80 cursor-pointer">Welcome, {session.user.email}</span>
+              <Link href="/dashboard" className="hover:opacity-80 cursor-pointer">Dashboard</Link>
+              <span className="hover:opacity-80 cursor-pointer">Welcome, {data.user.email}</span>
               <button
                 className="bg-neutral-900 px-4 py-2 rounded hover:opacity-80 cursor-pointer"
                 onClick={async() => {await signOut({

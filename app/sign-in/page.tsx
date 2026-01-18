@@ -1,14 +1,27 @@
 "use client"
 
 
-import { signIn } from '@/lib/auth-client';
+import { signIn, useSession } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const SignIn = () => {
     const router = useRouter()
     const [error, setError] = useState<string | null>(null);
+    const {data, isPending} = useSession()
 
+
+    // Redirect to dashboard if authenticated
+    useEffect(() => {
+      if(!isPending && data?.user){
+        router.push('/')
+      }
+    }, [data, isPending, router])
+  
+    // Show loading state while checking session
+    // if(isPending || !data?.user) return <div>Loading...</div>
+
+    // Handle form submission
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         setError(null);

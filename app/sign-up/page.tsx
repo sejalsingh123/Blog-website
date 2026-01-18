@@ -1,15 +1,30 @@
 "use client"
 
-import { signUp } from "@/lib/auth-client"
+import { signUp, useSession } from "@/lib/auth-client"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 
 const SignUp = () => {
     const router = useRouter();
     const [error, setError] = useState<string | null>(null)
+    const {data, isPending} = useSession()
 
+
+
+
+    // Redirect to dashboard if authenticated
+    useEffect(() => {
+      if(!isPending && data?.user){
+        router.push('/')
+      }
+    }, [data, isPending, router])
+  
+    // Show loading state while checking session
+    // if(isPending || !data?.user) return <div>Loading...</div>
+
+    // Handle form submission
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault()
         setError(null)

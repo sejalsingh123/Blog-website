@@ -107,6 +107,7 @@ model Post{
 model Category{
   id  String  @id @default(uuid())
   name String
+  slug      String?   @unique
   userId  String
   user    User  @relation(references: [id], fields: [userId], onDelete: Cascade)
   posts   Post[]
