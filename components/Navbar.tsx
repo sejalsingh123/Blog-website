@@ -10,7 +10,7 @@ export default function Navbar() {
   const {data} = useSession();
   const router = useRouter();
   return (
-    <nav className="w-full bg-[#3f4a3f] px-10 py-6">
+    <nav className="w-full bg-[#3f4a3f] px-10 py-10 shadow-md fixed top-0 left-0 z-50">
       <div className="flex items-center justify-between">
         {/* logo and title */}
         <Link href="/">

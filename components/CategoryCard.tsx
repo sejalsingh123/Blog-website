@@ -16,9 +16,9 @@ export default function CategoryCard({ title, image, slug }: CategoryCardProps) 
 
           {/* Browser Bar */}
           <div className="flex items-center gap-2 px-4 py-2 bg-[#3f4a3f] relative z-10">
-            <span className="w-3 h-3 bg-red-400 rounded-full" />
-            <span className="w-3 h-3 bg-yellow-400 rounded-full" />
-            <span className="w-3 h-3 bg-green-400 rounded-full" />
+            <div className="h-3 w-3 bg-[#161b16] rounded-full" />
+            <div className="h-3 w-3 bg-[#383838] rounded-full" />
+            <div className="h-3 w-3 bg-[#798279] rounded-full" /> 
           </div>
 
           {/* Image */}
@@ -36,7 +36,7 @@ export default function CategoryCard({ title, image, slug }: CategoryCardProps) 
                           group-hover:opacity-100 transition duration-300
                           flex items-center justify-center">
 
-            <button className="bg-indigo-600 text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-indigo-700 transition">
+            <button className="bg-[#4d453f]  text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-[#898481]  transition">
               View
             </button>
           </div>

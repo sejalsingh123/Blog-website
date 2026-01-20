@@ -14,11 +14,12 @@ const pool = new Pool({
 
 const adapter = new PrismaPg(pool);
 
-export const prisma = global.prisma || new PrismaClient({ adapter });
+const prisma = global.prisma || new PrismaClient({ adapter });
 
 if (process.env.NODE_ENV !== 'production') {
   global.prisma = prisma;
 }
+export default prisma;
 
 
 // This file creates a Prisma Client and attaches it to the global object so that only one instance of the client is created in your application. 

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import BlogCard from './BlogCard'
 import CategoryCard from './CategoryCard'
-import { prisma } from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 const Feed = async() => {
   const categories = await prisma.category.findMany({
@@ -21,7 +21,7 @@ const Feed = async() => {
     orderBy:{createdAt: "desc"},
   })
   return (
-    <main>
+    <>
         {/* Featured Categories */}
       <section className="px-6 py-16 max-w-7xl mx-auto">
         <h2 className="text-3xl font-semibold mb-8 text-center">
@@ -33,15 +33,15 @@ const Feed = async() => {
             key={cat.id}
             title={cat.name}
             image="/images/food.jpg" //temporary image
-            slug={cat.slug}
+            slug={cat.slug!}
            />
           ))}
-          <Link href="/dashboard" className="bg-blue-500 text-white px-4 py-2 rounded">Show all categories →</Link>
+          <Link href="/dashboard" className=" text-black font-semibold px-4 py-2 rounded hover:underline"><h3>Show all categories →</h3></Link>
         </div>
       </section>
 
       {/* LATEST BLOGS */}
-      <section className="px-6 py-16 bg-gray-100">
+      <section className="px-6 py-16 bg-amber-50">
         <h2 className="text-3xl font-semibold mb-8 text-center">
           Latest Blogs
         </h2>
@@ -52,7 +52,7 @@ const Feed = async() => {
           ))}
         </div>
       </section>
-    </main>
+    </>
   )
 }
 

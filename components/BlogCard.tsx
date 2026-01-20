@@ -19,7 +19,7 @@ const BlogCard = ({ post }: { post: any }) => {
       {/* Read more */}
       <Link
         href={`/blogs/post/${post.slug}`}
-        className="inline-block mt-3 text-indigo-600 font-medium"
+        className="inline-block mt-3 text-neutral-800 font-medium hover:underline"
       >
         Read more →
       </Link>

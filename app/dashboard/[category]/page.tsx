@@ -1,21 +1,36 @@
 
-import {prisma} from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import BlogCard from '@/components/BlogCard'
+import { auth } from '@/lib/auth';
+import { headers } from "next/headers";
+import { redirect } from 'next/navigation'
 
 type Props = {
-  params:{
+  params:Promise<{
     category:string
-  }
+  }>
 }
 
 const CategoryPage = async({params}:Props) => {
-  const {category} = params
+  const {category} = await params
+  // Redirect to sign-in if not authenticated
+     const session = await auth.api.getSession({
+        headers: await headers(),
+      });
+      const user = session?.user;
+      
+      if(!user ){
+        redirect("/sign-in")
+      }
+    
 
   // fetch posts based on category
   const posts = await prisma.post.findMany({
     where:{
       category:{
-        name: category,
+        slug: {
+          equals: category
+        }
       },
     },
     include:{
@@ -26,10 +41,10 @@ const CategoryPage = async({params}:Props) => {
     }
   })
   return (
-    <main className="px-6 py-16 max-w-7xl mx-auto">
+    <main className="px-6 py-16 mt-20 max-w-7xl mx-auto">
       
       {/* Heading */}
-      <h1 className="text-4xl font-semibold mb-4 text-center">
+      <h1 className="text-4xl font-semibold mt-20 mb-4 text-center">
         {category} Blogs
       </h1>
 
