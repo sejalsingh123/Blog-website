@@ -1,6 +1,5 @@
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import { deletePost } from '@/actions/post'
 import DeletePostButton from '@/components/DeleteButton'
 import { redirect } from 'next/navigation'
 import { headers } from 'next/headers'
