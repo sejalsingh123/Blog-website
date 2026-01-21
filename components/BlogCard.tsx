@@ -15,7 +15,7 @@ const BlogCard = ({ post }: { post: any }) => {
       <h3 className="mt-4 text-xl font-semibold">
         {post.title}
       </h3>
-
+ 
       {/* Read more */}
       <Link
         href={`/blogs/post/${post.slug}`}

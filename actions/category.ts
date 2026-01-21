@@ -16,13 +16,13 @@ export async function createCategory(formData: FormData) {
     }
 
     const name = formData.get("name") as string;
+    const imageUrl = formData.get("imageUrl") as string;
 
-    // Here we interact with our database to create a new category
-    // using Prisma:
-  
+    // Here we interact with our database to create a new category 
     await prisma.category.create({
         data: {
             name,
+            imageUrl,
             userId: user.id,
             slug: slugify(name, {lower: true}),
         },

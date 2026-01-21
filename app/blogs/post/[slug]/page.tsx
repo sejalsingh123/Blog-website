@@ -33,7 +33,7 @@ const PostPage = async({params}:Props) => {
   }
 
   return (
-    <main className="min-h-screen bg-[#faf7ef] mt-15">
+    <main className="min-h-screen  mt-15">
       <div className="max-w-7xl mx-auto px-10 py-28">
 
         {/* Header */}
@@ -69,10 +69,6 @@ const PostPage = async({params}:Props) => {
             {post.title}
           </h1>
 
-          {/* Subtitle */}
-          {/* <p className="text-xl text-gray-700 leading-relaxed">
-            {post.subtitle ?? "Thoughtful insights and practical ideas to help you learn better."}
-          </p> */}
         </div>
 
         {/* Content + Sidebar */}
@@ -101,7 +97,7 @@ const PostPage = async({params}:Props) => {
                 <img
                   src="/images/profile.jpg"
                   alt="Author"
-                  className="w-32 h-32 rounded-full object-cover border-4 border-white"
+                  className="w-32 h-32 rounded-full object-cover border-4 border-[#f5e6d3]"
                 />
               </div>
 

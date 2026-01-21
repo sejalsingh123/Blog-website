@@ -30,7 +30,7 @@ const CategoryPage = async({params}:Props) => {
       category:{
         slug: {
           equals: category
-        }
+        },
       },
     },
     include:{
@@ -45,7 +45,7 @@ const CategoryPage = async({params}:Props) => {
       
       {/* Heading */}
       <h1 className="text-4xl font-semibold mt-20 mb-4 text-center">
-        {category} Blogs
+        {category.charAt(0).toUpperCase() + category.slice(1)} Blogs
       </h1>
 
       <p className="text-center text-gray-500 mb-12">

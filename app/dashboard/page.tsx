@@ -41,7 +41,7 @@ const Dashboard = async() => {
               key={category.id}
               title={category.name}
               slug={category.slug!}
-              image="/images/travel.jpg"
+              image={category.imageUrl!}
             />
           ))}
         </div>

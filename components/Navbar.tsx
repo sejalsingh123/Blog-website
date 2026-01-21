@@ -42,7 +42,7 @@ export default function Navbar() {
           {data?.user ? (
             <>
               <Link href="/dashboard" className="hover:opacity-80 cursor-pointer">Dashboard</Link>
-              <span className="hover:opacity-80 cursor-pointer">Welcome, {data.user.email}</span>
+              {/* <span className="hover:opacity-80 cursor-pointer">Welcome, {data.user.email}</span> */}
               <button
                 className="bg-neutral-900 px-4 py-2 rounded hover:opacity-80 cursor-pointer"
                 onClick={async() => {await signOut({

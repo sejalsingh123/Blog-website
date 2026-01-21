@@ -11,16 +11,13 @@ const SignIn = () => {
     const {data, isPending} = useSession()
 
 
-    // Redirect to dashboard if authenticated
+    // Redirect to home page if already logged in
     useEffect(() => {
       if(!isPending && data?.user){
         router.push('/')
       }
     }, [data, isPending, router])
   
-    // Show loading state while checking session
-    // if(isPending || !data?.user) return <div>Loading...</div>
-
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();

@@ -3,7 +3,7 @@ import prisma from "../lib/prisma";
 
 async function main() {
     const user = await prisma.user.update({
-        where: {email: 'admin110@gmail.com'},
+        where: {email: process.env.ADMIN_EMAIL!},
         data: {role: 'ADMIN'}
     })
     console.log('User updated to admin:', user);

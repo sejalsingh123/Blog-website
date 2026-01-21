@@ -18,7 +18,7 @@ export const auth = betterAuth({
     minPasswordLength: 4,
     maxPasswordLength: 20,
   },
-  trustedOrigins: ['http://localhost:3001'],
+  trustedOrigins: [process.env.BETTER_AUTH_URL!],
 })
 
 

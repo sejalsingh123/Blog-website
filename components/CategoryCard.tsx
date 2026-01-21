@@ -23,10 +23,9 @@ export default function CategoryCard({ title, image, slug }: CategoryCardProps) 
 
           {/* Image */}
           <div className="relative h-56">
-            <Image
+            <img
               src={image}
               alt={title}
-              fill
               className="object-cover"
             />
           </div>
@@ -36,7 +35,7 @@ export default function CategoryCard({ title, image, slug }: CategoryCardProps) 
                           group-hover:opacity-100 transition duration-300
                           flex items-center justify-center">
 
-            <button className="bg-[#4d453f]  text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-[#898481]  transition">
+            <button className="bg-[#4d453f]  text-[#f5e6d3] px-8 py-3 rounded-xl text-lg font-medium hover:bg-[#898481]  transition">
               View
             </button>
           </div>

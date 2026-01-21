@@ -50,6 +50,16 @@ const CategoryAdminPage = async () => {
                   focus:outline-none focus:ring-2 focus:ring-[#4f5d4f]
                 "
               />
+              <input
+                name="imageUrl"
+                placeholder="Category image URL"
+                required
+                className="
+                  w-full border border-gray-300 rounded-xl 
+                  px-5 py-3 text-lg
+                  focus:outline-none focus:ring-2 focus:ring-[#4f5d4f]
+                "
+              />
 
               <button
                 type="submit"

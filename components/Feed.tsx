@@ -32,7 +32,7 @@ const Feed = async() => {
            < CategoryCard
             key={cat.id}
             title={cat.name}
-            image="/images/food.jpg" //temporary image
+            image={cat.imageUrl!}
             slug={cat.slug!}
            />
           ))}
