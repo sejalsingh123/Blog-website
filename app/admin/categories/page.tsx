@@ -6,11 +6,11 @@ import { headers } from "next/headers";
 
 
 const CategoryAdminPage = async () => {
+  
   const session = await auth.api.getSession({
     headers: await headers(),
   });
   const user = session?.user;
-  
   if(!user || (user as any).role !== 'ADMIN'){
     redirect("/")
   }

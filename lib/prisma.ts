@@ -6,15 +6,12 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-// Create a single PG pool using DATABASE_URL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-// Create Prisma adapter
 const adapter = new PrismaPg(pool);
 
-// Create singleton Prisma client WITH adapter
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
@@ -22,7 +19,6 @@ export const prisma =
     log: ["error"],
   });
 
-// Prevent multiple instances in dev (hot reload)
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
 }
