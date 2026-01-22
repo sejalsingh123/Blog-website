@@ -1,5 +1,5 @@
 import { auth } from '@/lib/auth';
-import prisma from '@/lib/prisma';
+import {prisma} from '@/lib/prisma';
 import { createCategory } from "@/actions/category";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";

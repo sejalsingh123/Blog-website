@@ -1,25 +1,32 @@
-import {PrismaClient} from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
+import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
 
-declare global {
-  var prisma: PrismaClient | undefined;
-}
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
 
-const connectionString = process.env.DATABASE_URL;
-
+// Create a single PG pool using DATABASE_URL
 const pool = new Pool({
-  connectionString,
+  connectionString: process.env.DATABASE_URL,
 });
 
+// Create Prisma adapter
 const adapter = new PrismaPg(pool);
 
-const prisma = global.prisma || new PrismaClient({ adapter });
+// Create singleton Prisma client WITH adapter
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({
+    adapter,
+    log: ["error"],
+  });
 
-if (process.env.NODE_ENV !== 'production') {
-  global.prisma = prisma;
+// Prevent multiple instances in dev (hot reload)
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = prisma;
 }
-export default prisma;
+
 
 
 // This file creates a Prisma Client and attaches it to the global object so that only one instance of the client is created in your application. 

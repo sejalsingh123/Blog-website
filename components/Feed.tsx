@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import BlogCard from './BlogCard'
 import CategoryCard from './CategoryCard'
-import prisma from '@/lib/prisma'
+import {prisma} from '@/lib/prisma'
 
 const Feed = async() => {
   const categories = await prisma.category.findMany({
