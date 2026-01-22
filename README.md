@@ -55,42 +55,11 @@ HOME (/)
  ├─ Click "Show all categories" → /dashboard                                                                                 
  └─ Click recent post → /blog/post/[slug]                                                                                    
                                                                                                                              
-/dashboard
+/dashboard                                                                                                                   
  └─ Click category → /dashboard/[category]                                                                                   
 
 /dashboard/[category]                                                                                                        
  └─ Click post → /blog/post/[slug]                                                                                           
-
-🗂️ Folder Structure                                                                                                         
-app/                                                                                                                         
-├── page.tsx                         # Home (categories + recent posts)                                                      
-│                                                                                                                            
-├── dashboard/                                                                                                               
-│   ├── page.tsx                     # All categories page                                                                   
-│   └── [category]/                                                                                                          
-│       └── page.tsx                 # Category-wise posts (dashboard-style)                                                 
-│                                                                                                                            
-├── blog/                                                                                                                    
-│   └── post/                                                                                                                
-│       └── [slug]/                                                                                                          
-│           └── page.tsx             # Single blog post                                                                      
-│
-├── admin/                                                                                                                   
-│   ├── page.tsx                     # Admin dashboard                                                                       
-│   ├── categories/                                                                                                          
-│   │   └── page.tsx                 # Create / manage categories                                                            
-│   └── posts/                                                                                                               
-│       ├── page.tsx                 # Manage posts                                                                          
-│       ├── create/                                                                                                          
-│       │   └── page.tsx             # Create post                                                                           
-│       └── edit/                                                                                                            
-│           └── [id]/                                                                                                        
-│               └── page.tsx         # Edit post                                                                             
-│                                                                                                                            
-├── actions/                                                                                                                 
-│   ├── post.ts                      # Server actions for posts                                                              
-│   └── category.ts                  # Server actions for categories                                                          
-
 
 
 🧑‍💻 Tech Stack
@@ -114,14 +83,13 @@ Admin	Create/edit/delete posts & categories
 
 📌 Pages Overview
 Route	Description
-/	Home page
-/dashboard	All categories
-/dashboard/[category]	Posts under a category
-/blog/post/[slug]	Single blog post
-/admin	Admin dashboard
-/admin/categories	Manage categories
-/admin/posts	Manage posts
-
+/	Home page  
+/dashboard	    #All categories
+/dashboard/[category]	   #Posts under a category  
+/blog/post/[slug]	   #Single blog post
+/admin	   #Admin dashboard
+/admin/categories	   #Manage categories
+/admin/posts	   #Manage posts
 
 🛠️ Work Done So Far
 
