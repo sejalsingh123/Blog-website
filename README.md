@@ -62,7 +62,7 @@ HOME (/)
  └─ Click post → /blog/post/[slug]
 
 🗂️ Folder Structure
-app/
+app/  
 ├── page.tsx                         # Home (categories + recent posts)
 │
 ├── dashboard/
@@ -79,7 +79,7 @@ app/
 │   ├── page.tsx                     # Admin dashboard
 │   ├── categories/
 │   │   └── page.tsx                 # Create / manage categories
-│   └── posts/
+│   └── posts/  
 │       ├── page.tsx                 # Manage posts
 │       ├── create/
 │       │   └── page.tsx             # Create post
