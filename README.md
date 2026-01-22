@@ -2,7 +2,7 @@
 
 A modern, full-stack blog platform built with Next.js App Router, Prisma, and Neon PostgreSQL, featuring role-based authentication, an admin dashboard, and category-based blogging with clean routing and revalidation.
 
-🚀 Features
+🚀 Features                                                                                                                 
 🌐 Public
 
 Home page with:
@@ -81,27 +81,7 @@ Role	Access
 User	View blogs, categories, dashboard
 Admin	Create/edit/delete posts & categories
 
-📌 Pages Overview
-Route	Description
-/	Home page  
-/dashboard	    #All categories
-/dashboard/[category]	   #Posts under a category  
-/blog/post/[slug]	   #Single blog post
-/admin	   #Admin dashboard
-/admin/categories	   #Manage categories
-/admin/posts	   #Manage posts
 
-🛠️ Work Done So Far
-
-✔ Authentication
-✔ Admin authorization
-✔ Category management
-✔ Post CRUD
-✔ Dynamic routing
-✔ Conditional rendering
-✔ Server actions + revalidation
-✔ Dashboard UI
-✔ Admin dashboard
 
 🧩 Upcoming Improvements
 
