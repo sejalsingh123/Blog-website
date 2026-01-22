@@ -50,59 +50,48 @@ Assign categories to posts
 Automatic page revalidation after content updates
 
 🧠 Website Flow
-HOME (/)
- ├─ Click featured category → /dashboard/[category]
- ├─ Click "Show all categories" → /dashboard
- └─ Click recent post → /blog/post/[slug]
+HOME (/)                                                                                                                     
+ ├─ Click featured category → /dashboard/[category]                                                                          
+ ├─ Click "Show all categories" → /dashboard                                                                                 
+ └─ Click recent post → /blog/post/[slug]                                                                                    
                                                                                                                              
 /dashboard
- └─ Click category → /dashboard/[category]
+ └─ Click category → /dashboard/[category]                                                                                   
 
-/dashboard/[category]
- └─ Click post → /blog/post/[slug]
+/dashboard/[category]                                                                                                        
+ └─ Click post → /blog/post/[slug]                                                                                           
 
-🗂️ Folder Structure
-app/  
-├── page.tsx                         # Home (categories + recent posts)
+🗂️ Folder Structure                                                                                                         
+app/                                                                                                                         
+├── page.tsx                         # Home (categories + recent posts)                                                      
+│                                                                                                                            
+├── dashboard/                                                                                                               
+│   ├── page.tsx                     # All categories page                                                                   
+│   └── [category]/                                                                                                          
+│       └── page.tsx                 # Category-wise posts (dashboard-style)                                                 
+│                                                                                                                            
+├── blog/                                                                                                                    
+│   └── post/                                                                                                                
+│       └── [slug]/                                                                                                          
+│           └── page.tsx             # Single blog post                                                                      
 │
-├── dashboard/
-│   ├── page.tsx                     # All categories page
-│   └── [category]/
-│       └── page.tsx                 # Category-wise posts (dashboard-style)
-│
-├── blog/
-│   └── post/
-│       └── [slug]/
-│           └── page.tsx             # Single blog post
-│
-├── admin/
-│   ├── page.tsx                     # Admin dashboard
-│   ├── categories/
-│   │   └── page.tsx                 # Create / manage categories
-│   └── posts/  
-│       ├── page.tsx                 # Manage posts
-│       ├── create/
-│       │   └── page.tsx             # Create post
-│       └── edit/
-│           └── [id]/
-│               └── page.tsx         # Edit post
-│
-├── actions/
-│   ├── post.ts                      # Server actions for posts
-│   └── category.ts                  # Server actions for categories
+├── admin/                                                                                                                   
+│   ├── page.tsx                     # Admin dashboard                                                                       
+│   ├── categories/                                                                                                          
+│   │   └── page.tsx                 # Create / manage categories                                                            
+│   └── posts/                                                                                                               
+│       ├── page.tsx                 # Manage posts                                                                          
+│       ├── create/                                                                                                          
+│       │   └── page.tsx             # Create post                                                                           
+│       └── edit/                                                                                                            
+│           └── [id]/                                                                                                        
+│               └── page.tsx         # Edit post                                                                             
+│                                                                                                                            
+├── actions/                                                                                                                 
+│   ├── post.ts                      # Server actions for posts                                                              
+│   └── category.ts                  # Server actions for categories                                                          
 
-🔁 Data Flow
-Admin Form
-   ↓
-Server Actions
-   ↓
-Prisma ORM
-   ↓
-Neon PostgreSQL
-   ↓
-revalidatePath()
-   ↓
-Updated UI (Home / Category pages)
+
 
 🧑‍💻 Tech Stack
 
@@ -122,6 +111,7 @@ Deployment Ready: Vercel-compatible
 Role	Access
 User	View blogs, categories, dashboard
 Admin	Create/edit/delete posts & categories
+
 📌 Pages Overview
 Route	Description
 /	Home page
@@ -131,10 +121,7 @@ Route	Description
 /admin	Admin dashboard
 /admin/categories	Manage categories
 /admin/posts	Manage posts
-🎨 UI Inspiration
 
-Design inspired by modern blog templates
-👉 Wix Blog Template https://www.wix.com/website-template/view/html/2714?originUrl=https%3A%2F%2Fwww.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fblog%2Ffood-travel&tpClick=view_button&esi=d7159913-328e-46b2-b2e4-419383b3d0bb
 
 🛠️ Work Done So Far
 
