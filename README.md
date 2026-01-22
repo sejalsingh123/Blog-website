@@ -54,7 +54,7 @@ HOME (/)
  ├─ Click featured category → /dashboard/[category]
  ├─ Click "Show all categories" → /dashboard
  └─ Click recent post → /blog/post/[slug]
-
+                                                                                                                             
 /dashboard
  └─ Click category → /dashboard/[category]
 
